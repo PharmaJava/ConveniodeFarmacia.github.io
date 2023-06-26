@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    body {
+        background-image: url("https://3.bp.blogspot.com/-wJxc6Aw3osk/WHdrkZF29JI/AAAAAAAAARE/bOCIm62uM00ahDRZoRjVtJNbQRRTCh6wACLcB/s1600/Farmacia.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: download ;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConvenioFarmacia</title>
+</head>
+
+<body>
+    <h1>Calculadora de Salario</h1>
+
+    <label for="profesion">Selecciona tu profesión:</label>
+    
+
+    <select id="profesion">
+        <option value="1">Farmacéutico</option>
+        <option value="2">Técnico</option>
+        <option value="3">Auxiliar</option>
+    </select>
+<br/>
+<br/>
+    <label for="anio">Selecciona el año:</label>
+    <select id="anio">
+        <option value="0">2022</option>
+        <option value="1">2023</option>
+        <option value="2">2024</option>
+    </select>
+    <br/>
+    <br/>
+    <label for="porcentaje">Introduce el porcentaje de jornada que estás contratado (1-100):</label>
+    <input type="number" id="porcentaje">
+
+    <br/>
+    <br/>
+
+    <label for="numHoras">Introduce las horas nocturnas trabajadas este mes:</label>
+    <input type="number" id="numHoras">
+
+    <button onclick="calcularSalario()">Calculate</button>
+
+    <h2>Resultados:</h2>
+    <div id="resultados"></div>
+
+    <script>
+        function calcularSalario() {
+            var profesion = document.getElementById("profesion").value;
+            var anio = document.getElementById("anio").value;
+            var porcentaje = parseFloat(document.getElementById("porcentaje").value);
+            var numHoras = parseFloat(document.getElementById("numHoras").value);
+            var salario = 0;
+            var salarioAnual = 0;
+
+            switch (profesion) {
+                case "1":
+                    switch (anio) {
+                        case "0":
+                            salario = (1985.35 * (porcentaje / 100) / 12 * 2) + (81.70 / 12) * 2 + numHoras * 2.48 + 81.70 + 1985.35 * (porcentaje / 100);
+                            salarioAnual = (1985.35 * (porcentaje / 100) + 81.70) * 14;
+                            break;
+                        case "1":
+                            salario = (2064.76 * (porcentaje / 100) / 12 * 2) + (84.97 / 12) * 2 + numHoras * 2.48 + 84.97 + 2064.76 * (porcentaje / 100);
+                            salarioAnual = (2064.76 * (porcentaje / 100) + 84.97) * 14;
+                            break;
+                        case "2":
+                            salario = (2137.03 * (porcentaje / 100) / 12 * 2) + (87.94 / 12) * 2 + numHoras * 2.56 + 87.94 + 2137.03 * (porcentaje / 100);
+                            salarioAnual = (2137.03 * (porcentaje / 100) + 87.94) * 14;
+                            break;
+                    }
+                    break;
+
+                case "2":
+                    switch (anio) {
+                        case "0":
+                            salario = (1345.92 * (porcentaje / 100) / 12 * 2) + numHoras * 1.62 + 1345.92 * (porcentaje / 100);
+                            salarioAnual = 1345.92 * (porcentaje / 100) * 14;
+                            break;
+                        case "1":
+                            salario = (1399.75 * (porcentaje / 100) / 12 * 2) + numHoras * 1.69 + 1399.75 * (porcentaje / 100);
+                            salarioAnual = 1399.75 * (porcentaje / 100) * 14;
+                            break;
+                        case "2":
+                            salario = (1448.74 * (porcentaje / 100) / 12 * 2) + numHoras * 1.75 + 1448.74 * (porcentaje / 100);
+                            salarioAnual = 1448.74 * (porcentaje / 100) * 14;
+                            break;
+                    }
+                    break;
+
+                case "3":
+                    switch (anio) {
+                        case "0":
+                            salario = (1223.91 * (porcentaje / 100) / 12 * 2) + numHoras * 1.61 + 1223.91 * (porcentaje / 100);
+                            salarioAnual = 1223.91 * (porcentaje / 100) * 14;
+                            break;
+                        case "1":
+                            salario = (1272.87 * (porcentaje / 100) / 12 * 2) + numHoras * 1.57 + 1272.87 * (porcentaje / 100);
+                            salarioAnual = 1272.87 * (porcentaje / 100) * 14;
+                            break;
+                        case "2":
+                            salario = (1317.42 * (porcentaje / 100) / 12 * 2) + numHoras * 1.62 + 1317.42 * (porcentaje / 100);
+                            salarioAnual = 1317.42 * (porcentaje / 100) * 14;
+                            break;
+                    }
+                    break;
+            }
+
+            var resultados = document.getElementById("resultados");
+            resultados.innerHTML = "Tu salario mensual es de " + salario.toFixed(2) + " euros brutos<br>";
+            resultados.innerHTML += "Tu salario anual sin horas nocturnas es de " + salarioAnual.toFixed(2) + " euros brutos";
+        }
+    </script>
+</body>
+
+</html>
