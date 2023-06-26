@@ -32,19 +32,19 @@
     <label for="anio">Selecciona el año:</label>
     <select id="anio">
         <option value="0">2022</option>
-        <option value="1">2023</option>
+        <option value="1"selected>2023</option>
         <option value="2">2024</option>
     </select>
     <br />
     <br />
     <label for="porcentaje">Introduce el porcentaje de jornada que estás contratado (1-100):</label>
-    <input type="number" id="porcentaje">
+    <input type="number" id="porcentaje" value="100">
 
     <br />
     <br />
 
     <label for="numHoras">Introduce las horas nocturnas trabajadas este mes:</label>
-    <input type="number" id="numHoras">
+    <input type="number" id="numHoras" value="0" >
 
     <button onclick="calcularSalario()">Calculate</button>
 
