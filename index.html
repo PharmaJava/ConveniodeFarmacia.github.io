@@ -83,16 +83,16 @@
                 case "1":
                     switch (anio) {
                         case "0":
-                            salario = (1985.35 * (porcentaje / 100) / 12 * 2) + (81.70 / 12) * 2 + numHoras * 2.48 + 81.70 + 1985.35 * (porcentaje / 100);
-                            salarioAnual = (1985.35 * (porcentaje / 100) + 81.70) * 14;
+                            salario = (1985.35 * (porcentaje / 100) / 12 * 2) +  numHoras * 2.48 + 81.70 + 1985.35 * (porcentaje / 100);
+                            salarioAnual = (1985.35 * (porcentaje / 100) ) * 14+ (81.70*12);
                             break;
                         case "1":
-                            salario = (2064.76 * (porcentaje / 100) / 12 * 2) + (84.97 / 12) * 2 + numHoras * 2.48 + 84.97 + 2064.76 * (porcentaje / 100);
-                            salarioAnual = (2064.76 * (porcentaje / 100) + 84.97) * 14;
+                            salario = (2064.76 * (porcentaje / 100) / 12 * 2) +  numHoras * 2.48 + 84.97 + 2064.76 * (porcentaje / 100);
+                            salarioAnual = (2064.76 * (porcentaje / 100) ) * 14+ (81.70*12);
                             break;
                         case "2":
-                            salario = (2137.03 * (porcentaje / 100) / 12 * 2) + (87.94 / 12) * 2 + numHoras * 2.56 + 87.94 + 2137.03 * (porcentaje / 100);
-                            salarioAnual = (2137.03 * (porcentaje / 100) + 87.94) * 14;
+                            salario = (2137.03 * (porcentaje / 100) / 12 * 2) + numHoras * 2.56 + 87.94 + 2137.03 * (porcentaje / 100);
+                            salarioAnual = (2137.03 * (porcentaje / 100) ) * 14+ (87.94*12);
                             break;
                     }
                     break;
@@ -142,12 +142,24 @@
             var diferencia = salario - salarioNeto;
 
             var resultados = document.getElementById("resultados");
-            resultados.innerHTML = "<p>Salario bruto mensual: " + salario.toFixed(2) + " €</p>" +
-                "<p>Salario bruto anual: " + salarioAnual.toFixed(2) + " €</p>" +
+            resultados.innerHTML = 
+                  "Salario Bruto: " + salario.toFixed(2) + "€<br>" + 
+                  "<strong>Salario Neto: " + salarioNeto.toFixed(2) + "€</strong><br>" +
+                  "<br/>"+ 
+                  "Salario Bruto Anual: " + salarioAnual.toFixed(2) + "€<br>" +
+
+                "<strong>Salario Neto Anual: " + salarioNetoAnual.toFixed(2) + "€</strong><br>" +
+                "<br/>"+ 
+                "Cotización Cont. Comu: " + cotizacionContComuAmount.toFixed(2) + "€<br>" +
+                "Cotización Formación: " + cotizacionFormacionAmount.toFixed(2) + "€<br>" +
+                "Cotización Desempleo: " + cotizacionDesempleoAmount.toFixed(2) + "€<br>" +
+                "<br/>"+ 
+                "IRPF: " + irpfAmount.toFixed(2) + "€<br>" +
+                "<br/>"+ 
+                
+                 "<br/>"+ 
                
-                "<p>Salario neto mensual: " + salarioNeto.toFixed(2) + " €</p>" +
-                "<p>Salario neto anual: " + salarioNetoAnual.toFixed(2) + " €</p>" +
-                "<strong>La diferencia entre el salario bruto y el neto no es magia, son tus impuestos:</strong> " + "<strong>" + diferencia.toFixed(2) + "€" + "</strong>";
+                "<strong>La diferencia entre el salario bruto y el neto no es magia, son tus impuestos:</strong> " +"<strong>" + diferencia.toFixed(2) + "€" + "</strong>"
         }
     </script>
 </body>
