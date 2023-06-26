@@ -27,26 +27,41 @@
         <option value="2">Técnico</option>
         <option value="3">Auxiliar</option>
     </select>
-    <br />
-    <br />
+    <br/>
+    <br/>
     <label for="anio">Selecciona el año:</label>
     <select id="anio">
         <option value="0">2022</option>
-        <option value="1"selected>2023</option>
+        <option value="1" selected>2023</option>
         <option value="2">2024</option>
     </select>
-    <br />
-    <br />
+    <br/>
+    <br/>
     <label for="porcentaje">Introduce el porcentaje de jornada que estás contratado (1-100):</label>
     <input type="number" id="porcentaje" value="100">
-
-    <br />
-    <br />
-
+    <br/>
+    <br/>
     <label for="numHoras">Introduce las horas nocturnas trabajadas este mes:</label>
     <input type="number" id="numHoras" value="0">
-
-    <button onclick="calcularSalario()">Calculate</button>
+    <br/>
+    <br/>
+    <label for="porcentajeIRPF">Porcentaje de IRPF:</label>
+    <input type="number" id="porcentajeIRPF" value="16.75">
+    <br/>
+    <br/>
+    <label for="cotizacionContComu">Cotización Cont. Comu (%):</label>
+    <input type="number" id="cotizacionContComu" value="4.80">
+    <br/>
+    <br/>
+    <label for="cotizacionFormacion">Cotización Formación (%):</label>
+    <input type="number" id="cotizacionFormacion" value="0.10">
+    <br/>
+    <br/>
+    <label for="cotizacionDesempleo">Cotización Desempleo (%):</label>
+    <input type="number" id="cotizacionDesempleo" value="1.55">
+    <br/>
+    <br/>
+    <button onclick="calcularSalario()">Calcular</button>
 
     <h2>Resultados:</h2>
     <div id="resultados"></div>
@@ -57,6 +72,10 @@
             var anio = document.getElementById("anio").value;
             var porcentaje = parseFloat(document.getElementById("porcentaje").value);
             var numHoras = parseFloat(document.getElementById("numHoras").value);
+            var porcentajeIRPF = parseFloat(document.getElementById("porcentajeIRPF").value);
+            var cotizacionContComu = parseFloat(document.getElementById("cotizacionContComu").value);
+            var cotizacionFormacion = parseFloat(document.getElementById("cotizacionFormacion").value);
+            var cotizacionDesempleo = parseFloat(document.getElementById("cotizacionDesempleo").value);
             var salario = 0;
             var salarioAnual = 0;
 
@@ -64,15 +83,15 @@
                 case "1":
                     switch (anio) {
                         case "0":
-                            salario = (1985.35 * (porcentaje / 100) / 12 * 2) + (81.70 / 12) * 2 + (numHoras !== 0 ? numHoras * 2.48 : 0) + 81.70 + 1985.35 * (porcentaje / 100);
+                            salario = (1985.35 * (porcentaje / 100) / 12 * 2) + (81.70 / 12) * 2 + numHoras * 2.48 + 81.70 + 1985.35 * (porcentaje / 100);
                             salarioAnual = (1985.35 * (porcentaje / 100) + 81.70) * 14;
                             break;
                         case "1":
-                            salario = (2064.76 * (porcentaje / 100) / 12 * 2) + (84.97 / 12) * 2 + (numHoras !== 0 ? numHoras * 2.48 : 0) + 84.97 + 2064.76 * (porcentaje / 100);
+                            salario = (2064.76 * (porcentaje / 100) / 12 * 2) + (84.97 / 12) * 2 + numHoras * 2.48 + 84.97 + 2064.76 * (porcentaje / 100);
                             salarioAnual = (2064.76 * (porcentaje / 100) + 84.97) * 14;
                             break;
                         case "2":
-                            salario = (2137.03 * (porcentaje / 100) / 12 * 2) + (87.94 / 12) * 2 + (numHoras !== 0 ? numHoras * 2.56 : 0) + 87.94 + 2137.03 * (porcentaje / 100);
+                            salario = (2137.03 * (porcentaje / 100) / 12 * 2) + (87.94 / 12) * 2 + numHoras * 2.56 + 87.94 + 2137.03 * (porcentaje / 100);
                             salarioAnual = (2137.03 * (porcentaje / 100) + 87.94) * 14;
                             break;
                     }
@@ -81,15 +100,15 @@
                 case "2":
                     switch (anio) {
                         case "0":
-                            salario = (1345.92 * (porcentaje / 100) / 12 * 2) + (numHoras !== 0 ? numHoras * 1.62 : 0) + 1345.92 * (porcentaje / 100);
+                            salario = (1345.92 * (porcentaje / 100) / 12 * 2) + numHoras * 1.62 + 1345.92 * (porcentaje / 100);
                             salarioAnual = 1345.92 * (porcentaje / 100) * 14;
                             break;
                         case "1":
-                            salario = (1399.75 * (porcentaje / 100) / 12 * 2) + (numHoras !== 0 ? numHoras * 1.69 : 0) + 1399.75 * (porcentaje / 100);
+                            salario = (1399.75 * (porcentaje / 100) / 12 * 2) + numHoras * 1.69 + 1399.75 * (porcentaje / 100);
                             salarioAnual = 1399.75 * (porcentaje / 100) * 14;
                             break;
                         case "2":
-                            salario = (1448.74 * (porcentaje / 100) / 12 * 2) + (numHoras !== 0 ? numHoras * 1.75 : 0) + 1448.74 * (porcentaje / 100);
+                            salario = (1448.74 * (porcentaje / 100) / 12 * 2) + numHoras * 1.75 + 1448.74 * (porcentaje / 100);
                             salarioAnual = 1448.74 * (porcentaje / 100) * 14;
                             break;
                     }
@@ -98,24 +117,37 @@
                 case "3":
                     switch (anio) {
                         case "0":
-                            salario = (1223.91 * (porcentaje / 100) / 12 * 2) + (numHoras !== 0 ? numHoras * 1.61 : 0) + 1223.91 * (porcentaje / 100);
+                            salario = (1223.91 * (porcentaje / 100) / 12 * 2) + numHoras * 1.61 + 1223.91 * (porcentaje / 100);
                             salarioAnual = 1223.91 * (porcentaje / 100) * 14;
                             break;
                         case "1":
-                            salario = (1272.87 * (porcentaje / 100) / 12 * 2) + (numHoras !== 0 ? numHoras * 1.57 : 0) + 1272.87 * (porcentaje / 100);
+                            salario = (1272.87 * (porcentaje / 100) / 12 * 2) + numHoras * 1.68 + 1272.87 * (porcentaje / 100);
                             salarioAnual = 1272.87 * (porcentaje / 100) * 14;
                             break;
                         case "2":
-                            salario = (1317.42 * (porcentaje / 100) / 12 * 2) + (numHoras !== 0 ? numHoras * 1.62 : 0) + 1317.42 * (porcentaje / 100);
-                            salarioAnual = 1317.42 * (porcentaje / 100) * 14;
+                            salario = (1316.58 * (porcentaje / 100) / 12 * 2) + numHoras * 1.73 + 1316.58 * (porcentaje / 100);
+                            salarioAnual = 1316.58 * (porcentaje / 100) * 14;
                             break;
                     }
                     break;
             }
 
+            var cotizacionContComuAmount = salario * (cotizacionContComu / 100);
+            var cotizacionFormacionAmount = salario * (cotizacionFormacion / 100);
+            var cotizacionDesempleoAmount = salario * (cotizacionDesempleo / 100);
+            var irpfAmount = salario * (porcentajeIRPF / 100);
+            var salarioNeto = salario - cotizacionContComuAmount - cotizacionFormacionAmount - cotizacionDesempleoAmount - irpfAmount;
+            var salarioNetoAnual = salarioAnual - cotizacionContComuAmount * 14 - cotizacionFormacionAmount * 14 - cotizacionDesempleoAmount * 14 - irpfAmount * 14;
+
+            var diferencia = salario - salarioNeto;
+
             var resultados = document.getElementById("resultados");
-            resultados.innerHTML = "Tu salario mensual es de " + salario.toFixed(2) + " euros brutos<br>";
-            resultados.innerHTML += "Tu salario anual sin horas nocturnas es de " + salarioAnual.toFixed(2) + " euros brutos";
+            resultados.innerHTML = "<p>Salario bruto mensual: " + salario.toFixed(2) + " €</p>" +
+                "<p>Salario bruto anual: " + salarioAnual.toFixed(2) + " €</p>" +
+               
+                "<p>Salario neto mensual: " + salarioNeto.toFixed(2) + " €</p>" +
+                "<p>Salario neto anual: " + salarioNetoAnual.toFixed(2) + " €</p>" +
+                "<strong>La diferencia entre el salario bruto y el neto no es magia, son tus impuestos:</strong> " + "<strong>" + diferencia.toFixed(2) + "€" + "</strong>";
         }
     </script>
 </body>
