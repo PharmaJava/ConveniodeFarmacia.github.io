@@ -1,70 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<style>
-    body {
-        background-image: url("https://3.bp.blogspot.com/-wJxc6Aw3osk/WHdrkZF29JI/AAAAAAAAARE/bOCIm62uM00ahDRZoRjVtJNbQRRTCh6wACLcB/s1600/Farmacia.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: download;
-    }
-</style>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ConvenioFarmacia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://3.bp.blogspot.com/-wJxc6Aw3osk/WHdrkZF29JI/AAAAAAAAARE/bOCIm62uM00ahDRZoRjVtJNbQRRTCh6wACLcB/s1600/Farmacia.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        label, select, input {
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        select, input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #2980b9;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        #resultados {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #16a085;
+        }
+
+        strong {
+            color: #e74c3c;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            label, select, input {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Calculadora de Salario</h1>
+    <div class="container">
+        <h1>Calculadora de Salario</h1>
 
-    <label for="profesion">Selecciona tu profesión:</label>
+        <label for="profesion">Selecciona tu profesión:</label>
+        <select id="profesion">
+            <option value="1">Farmacéutico</option>
+            <option value="2">Técnico</option>
+            <option value="3">Auxiliar</option>
+        </select>
 
+        <label for="anio">Selecciona el año:</label>
+        <select id="anio">
+            <option value="0">2022</option>
+            <option value="1">2023</option>
+            <option value="2" selected>2024</option>
+        </select>
 
-    <select id="profesion">
-        <option value="1">Farmacéutico</option>
-        <option value="2">Técnico</option>
-        <option value="3">Auxiliar</option>
-    </select>
-    <br/>
-    <br/>
-    <label for="anio">Selecciona el año:</label>
-    <select id="anio">
-        <option value="0">2022</option>
-        <option value="1">2023</option>
-        <option value="2" selected>2024</option>
-    </select>
-    <br/>
-    <br/>
-    <label for="porcentaje">Introduce el porcentaje de jornada que estás contratado (1-100):</label>
-    <input type="number" id="porcentaje" value="100">
-    <br/>
-    <br/>
-    <label for="numHoras">Introduce las horas nocturnas trabajadas este mes:</label>
-    <input type="number" id="numHoras" value="0">
-    <br/>
-    <br/>
-    <label for="porcentajeIRPF">Porcentaje de IRPF:</label>
-    <input type="number" id="porcentajeIRPF" value="16.92">
-    <br/>
-    <br/>
-    <label for="cotizacionContComu">Cotización Cont. Comu (%):</label>
-    <input type="number" id="cotizacionContComu" value="4.80">
-    <br/>
-    <br/>
-    <label for="cotizacionFormacion">Cotización Formación (%):</label>
-    <input type="number" id="cotizacionFormacion" value="0.10">
-    <br/>
-    <br/>
-    <label for="cotizacionDesempleo">Cotización Desempleo (%):</label>
-    <input type="number" id="cotizacionDesempleo" value="1.55">
-    <br/>
-    <br/>
-    <button onclick="calcularSalario()">Calcular</button>
+        <label for="porcentaje">Introduce el porcentaje de jornada que estás contratado (1-100):</label>
+        <input type="number" id="porcentaje" value="100">
 
-    <h2>Resultados:</h2>
-    <div id="resultados"></div>
+        <label for="numHoras">Introduce las horas nocturnas trabajadas este mes:</label>
+        <input type="number" id="numHoras" value="0">
+
+        <label for="porcentajeIRPF">Porcentaje de IRPF:</label>
+        <input type="number" id="porcentajeIRPF" value="16.92">
+
+        <label for="cotizacionContComu">Cotización Cont. Comu (%):</label>
+        <input type="number" id="cotizacionContComu" value="4.80">
+
+        <label for="cotizacionFormacion">Cotización Formación (%):</label>
+        <input type="number" id="cotizacionFormacion" value="0.10">
+
+        <label for="cotizacionDesempleo">Cotización Desempleo (%):</label>
+        <input type="number" id="cotizacionDesempleo" value="1.55">
+
+        <button onclick="calcularSalario()">Calcular</button>
+
+        <div id="resultados"></div>
+    </div>
 
     <script>
         function calcularSalario() {
