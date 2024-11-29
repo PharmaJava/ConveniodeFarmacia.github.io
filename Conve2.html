@@ -108,7 +108,8 @@
         <select id="anio">
             <option value="0">2022</option>
             <option value="1">2023</option>
-            <option value="2" selected>2024</option>
+            <option value="2">2024</option>
+            <option value="3" selected>2025</option>
         </select>
 
         <label for="porcentaje">Introduce el porcentaje de jornada que estás contratado (1-100):</label>
@@ -151,16 +152,20 @@
                 case "1":
                     switch (anio) {
                         case "0":
-                            salario = (1985.35 * (porcentaje / 100) / 12 * 2) +  numHoras * 2.48 + 81.70 + 1985.35 * (porcentaje / 100);
-                            salarioAnual = (1985.35 * (porcentaje / 100) ) * 14+ (81.70*12);
+                            salario = 1985.35 * (porcentaje / 100) / 12 * 2 + numHoras * 2.48 + 81.70 + 1985.35 * (porcentaje / 100);
+                            salarioAnual = 1985.35 * (porcentaje / 100) * 14 + 81.70 * 12;
                             break;
                         case "1":
-                            salario = (2064.76 * (porcentaje / 100) / 12 * 2) +  numHoras * 2.48 + 84.97 + 2064.76 * (porcentaje / 100);
-                            salarioAnual = (2064.76 * (porcentaje / 100) ) * 14+ (81.70*12);
+                            salario = 2064.76 * (porcentaje / 100) / 12 * 2 + numHoras * 2.48 + 84.97 + 2064.76 * (porcentaje / 100);
+                            salarioAnual = 2064.76 * (porcentaje / 100) * 14 + 84.97 * 12;
                             break;
                         case "2":
-                            salario = (2137.03 * (porcentaje / 100) / 12 * 2) + numHoras * 2.56 + 87.94 + 2137.03 * (porcentaje / 100);
-                            salarioAnual = (2137.03 * (porcentaje / 100) ) * 14+ (87.94*12);
+                            salario = 2137.03 * (porcentaje / 100) / 12 * 2 + numHoras * 2.56 + 87.94 + 2137.03 * (porcentaje / 100);
+                            salarioAnual = 2137.03 * (porcentaje / 100) * 14 + 87.94 * 12;
+                            break;
+                        case "3": // Año 2025 (2% más que 2024)
+                            salario = 2180.77 * (porcentaje / 100) / 12 * 2 + numHoras * 2.61 + 89.70 + 2180.77 * (porcentaje / 100);
+                            salarioAnual = 2180.77 * (porcentaje / 100) * 14 + 89.70 * 12;
                             break;
                     }
                     break;
@@ -168,16 +173,20 @@
                 case "2":
                     switch (anio) {
                         case "0":
-                            salario = (1345.92 * (porcentaje / 100) / 12 * 2) + numHoras * 1.62 + 1345.92 * (porcentaje / 100);
+                            salario = 1345.92 * (porcentaje / 100) / 12 * 2 + numHoras * 1.62 + 1345.92 * (porcentaje / 100);
                             salarioAnual = 1345.92 * (porcentaje / 100) * 14;
                             break;
                         case "1":
-                            salario = (1399.75 * (porcentaje / 100) / 12 * 2) + numHoras * 1.69 + 1399.75 * (porcentaje / 100);
+                            salario = 1399.75 * (porcentaje / 100) / 12 * 2 + numHoras * 1.69 + 1399.75 * (porcentaje / 100);
                             salarioAnual = 1399.75 * (porcentaje / 100) * 14;
                             break;
                         case "2":
-                            salario = (1448.74 * (porcentaje / 100) / 12 * 2) + numHoras * 1.75 + 1448.74 * (porcentaje / 100);
+                            salario = 1448.74 * (porcentaje / 100) / 12 * 2 + numHoras * 1.75 + 1448.74 * (porcentaje / 100);
                             salarioAnual = 1448.74 * (porcentaje / 100) * 14;
+                            break;
+                        case "3": // Año 2025 (2% más que 2024)
+                            salario = 1477.71 * (porcentaje / 100) / 12 * 2 + numHoras * 1.79 + 1477.71 * (porcentaje / 100);
+                            salarioAnual = 1477.71 * (porcentaje / 100) * 14;
                             break;
                     }
                     break;
@@ -185,16 +194,20 @@
                 case "3":
                     switch (anio) {
                         case "0":
-                            salario = (1223.91 * (porcentaje / 100) / 12 * 2) + numHoras * 1.61 + 1223.91 * (porcentaje / 100);
+                            salario = 1223.91 * (porcentaje / 100) / 12 * 2 + numHoras * 1.61 + 1223.91 * (porcentaje / 100);
                             salarioAnual = 1223.91 * (porcentaje / 100) * 14;
                             break;
                         case "1":
-                            salario = (1272.87 * (porcentaje / 100) / 12 * 2) + numHoras * 1.68 + 1272.87 * (porcentaje / 100);
+                            salario = 1272.87 * (porcentaje / 100) / 12 * 2 + numHoras * 1.68 + 1272.87 * (porcentaje / 100);
                             salarioAnual = 1272.87 * (porcentaje / 100) * 14;
                             break;
                         case "2":
-                            salario = (1316.58 * (porcentaje / 100) / 12 * 2) + numHoras * 1.73 + 1316.58 * (porcentaje / 100);
+                            salario = 1316.58 * (porcentaje / 100) / 12 * 2 + numHoras * 1.73 + 1316.58 * (porcentaje / 100);
                             salarioAnual = 1316.58 * (porcentaje / 100) * 14;
+                            break;
+                        case "3": // Año 2025 (2% más que 2024)
+                            salario = 1342.91 * (porcentaje / 100) / 12 * 2 + numHoras * 1.76 + 1342.91 * (porcentaje / 100);
+                            salarioAnual = 1342.91 * (porcentaje / 100) * 14;
                             break;
                     }
                     break;
@@ -210,24 +223,21 @@
             var diferencia = salario - salarioNeto;
 
             var resultados = document.getElementById("resultados");
-            resultados.innerHTML = 
-                  "Salario Bruto: " + salario.toFixed(2) + "€<br>" + 
-                  "<strong>Salario Neto: " + salarioNeto.toFixed(2) + "€</strong><br>" +
-                  "<br/>"+ 
-                  "Salario Bruto Anual: " + salarioAnual.toFixed(2) + "€<br>" +
-
+            resultados.innerHTML =
+                "Salario Bruto: " + salario.toFixed(2) + "€<br>" +
+                "<strong>Salario Neto: " + salarioNeto.toFixed(2) + "€</strong><br>" +
+                "<br/>" +
+                "Salario Bruto Anual: " + salarioAnual.toFixed(2) + "€<br>" +
                 "<strong>Salario Neto Anual: " + salarioNetoAnual.toFixed(2) + "€</strong><br>" +
-                "<br/>"+ 
+                "<br/>" +
                 "Cotización Cont. Comu: " + cotizacionContComuAmount.toFixed(2) + "€<br>" +
                 "Cotización Formación: " + cotizacionFormacionAmount.toFixed(2) + "€<br>" +
                 "Cotización Desempleo: " + cotizacionDesempleoAmount.toFixed(2) + "€<br>" +
-                "<br/>"+ 
+                "<br/>" +
                 "IRPF: " + irpfAmount.toFixed(2) + "€<br>" +
-                "<br/>"+ 
-                
-                 "<br/>"+ 
-               
-                "<strong>La diferencia entre el salario bruto y el neto no es magia, son tus impuestos:</strong> " +"<strong>" + diferencia.toFixed(2) + "€" + "</strong>"
+                "<br/>" +
+                "<br/>" +
+                "<strong>La diferencia entre el salario bruto y el neto no es magia, son tus impuestos:</strong> " + "<strong>" + diferencia.toFixed(2) + "€" + "</strong>";
         }
     </script>
 </body>
