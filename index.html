@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +18,6 @@
             align-items: center;
             min-height: 100vh;
         }
-
         .container {
             background: rgba(255, 255, 255, 0.9);
             padding: 20px;
@@ -28,25 +26,21 @@
             max-width: 500px;
             width: 100%;
         }
-
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
             color: #2c3e50;
         }
-
         label, select, input {
             width: 100%;
             margin-bottom: 10px;
             font-size: 16px;
         }
-
         select, input {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -57,84 +51,66 @@
             cursor: pointer;
             width: 100%;
         }
-
         button:hover {
             background-color: #3498db;
         }
-
         #resultados {
             margin-top: 20px;
             font-size: 18px;
             color: #16a085;
         }
-
         strong {
             color: #e74c3c;
         }
-
         @media (max-width: 600px) {
             .container {
                 padding: 15px;
                 font-size: 14px;
             }
-
             h1 {
                 font-size: 20px;
             }
-
             label, select, input {
                 font-size: 14px;
             }
-
             button {
                 font-size: 14px;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1>Calculadora de Salario</h1>
-
         <label for="profesion">Selecciona tu profesión:</label>
         <select id="profesion">
             <option value="1">Farmacéutico</option>
             <option value="2">Técnico</option>
             <option value="3">Auxiliar</option>
         </select>
-
         <label for="anio">Selecciona el año:</label>
         <select id="anio">
             <option value="0">2022</option>
             <option value="1">2023</option>
             <option value="2">2024</option>
-            <option value="3" selected>2025</option>
+            <option value="3">2025</option>
+            <option value="4" selected>2026</option>
         </select>
-
         <label for="porcentaje">Introduce el porcentaje de jornada que estás contratado (1-100):</label>
         <input type="number" id="porcentaje" value="100">
-
         <label for="numHoras">Introduce las horas nocturnas trabajadas este mes:</label>
         <input type="number" id="numHoras" value="0">
-
         <label for="porcentajeIRPF">Porcentaje de IRPF:</label>
-        <input type="number" id="porcentajeIRPF" value="16.92">
-
+        <input type="number" id="porcentajeIRPF" value="15.50">
         <label for="cotizacionContComu">Cotización Cont. Comu (%):</label>
         <input type="number" id="cotizacionContComu" value="4.80">
-
         <label for="cotizacionFormacion">Cotización Formación (%):</label>
         <input type="number" id="cotizacionFormacion" value="0.10">
-
         <label for="cotizacionDesempleo">Cotización Desempleo (%):</label>
         <input type="number" id="cotizacionDesempleo" value="1.55">
-
         <button onclick="calcularSalario()">Calcular</button>
-
         <div id="resultados"></div>
     </div>
-
     <script>
         function calcularSalario() {
             var profesion = document.getElementById("profesion").value;
@@ -147,7 +123,6 @@
             var cotizacionDesempleo = parseFloat(document.getElementById("cotizacionDesempleo").value);
             var salario = 0;
             var salarioAnual = 0;
-
             switch (profesion) {
                 case "1":
                     switch (anio) {
@@ -163,13 +138,16 @@
                             salario = 2137.03 * (porcentaje / 100) / 12 * 2 + numHoras * 2.56 + 87.94 + 2137.03 * (porcentaje / 100);
                             salarioAnual = 2137.03 * (porcentaje / 100) * 14 + 87.94 * 12;
                             break;
-                        case "3": // Año 2025 (2% más que 2024)
+                        case "3":
                             salario = 2180.77 * (porcentaje / 100) / 12 * 2 + numHoras * 2.61 + 89.70 + 2180.77 * (porcentaje / 100);
                             salarioAnual = 2180.77 * (porcentaje / 100) * 14 + 89.70 * 12;
                             break;
+                        case "4":
+                            salario = 2224.39 * (porcentaje / 100) / 12 * 2 + numHoras * 2.66 + 91.49 + 2224.39 * (porcentaje / 100);
+                            salarioAnual = 2224.39 * (porcentaje / 100) * 14 + 91.49 * 12;
+                            break;
                     }
                     break;
-
                 case "2":
                     switch (anio) {
                         case "0":
@@ -184,13 +162,16 @@
                             salario = 1448.74 * (porcentaje / 100) / 12 * 2 + numHoras * 1.75 + 1448.74 * (porcentaje / 100);
                             salarioAnual = 1448.74 * (porcentaje / 100) * 14;
                             break;
-                        case "3": // Año 2025 (2% más que 2024)
+                        case "3":
                             salario = 1477.71 * (porcentaje / 100) / 12 * 2 + numHoras * 1.79 + 1477.71 * (porcentaje / 100);
                             salarioAnual = 1477.71 * (porcentaje / 100) * 14;
                             break;
+                        case "4":
+                            salario = 1507.26 * (porcentaje / 100) / 12 * 2 + numHoras * 1.83 + 1507.26 * (porcentaje / 100);
+                            salarioAnual = 1507.26 * (porcentaje / 100) * 14;
+                            break;
                     }
                     break;
-
                 case "3":
                     switch (anio) {
                         case "0":
@@ -205,26 +186,26 @@
                             salario = 1316.58 * (porcentaje / 100) / 12 * 2 + numHoras * 1.73 + 1316.58 * (porcentaje / 100);
                             salarioAnual = 1316.58 * (porcentaje / 100) * 14;
                             break;
-                        case "3": // Año 2025 (2% más que 2024)
+                        case "3":
                             salario = 1342.91 * (porcentaje / 100) / 12 * 2 + numHoras * 1.76 + 1342.91 * (porcentaje / 100);
                             salarioAnual = 1342.91 * (porcentaje / 100) * 14;
+                            break;
+                        case "4":
+                            salario = 1369.77 * (porcentaje / 100) / 12 * 2 + numHoras * 1.80 + 1369.77 * (porcentaje / 100);
+                            salarioAnual = 1369.77 * (porcentaje / 100) * 14;
                             break;
                     }
                     break;
             }
-
             var cotizacionContComuAmount = salario * (cotizacionContComu / 100);
             var cotizacionFormacionAmount = salario * (cotizacionFormacion / 100);
             var cotizacionDesempleoAmount = salario * (cotizacionDesempleo / 100);
             var irpfAmount = salario * (porcentajeIRPF / 100);
             var salarioNeto = salario - cotizacionContComuAmount - cotizacionFormacionAmount - cotizacionDesempleoAmount - irpfAmount;
             var salarioNetoAnual = salarioAnual - cotizacionContComuAmount * 14 - cotizacionFormacionAmount * 14 - cotizacionDesempleoAmount * 14 - irpfAmount * 14;
-
             var diferencia = salario - salarioNeto;
-
             var resultados = document.getElementById("resultados");
-            resultados.innerHTML =
-                "Salario Bruto: " + salario.toFixed(2) + "€<br>" +
+            resultados.innerHTML = "Salario Bruto: " + salario.toFixed(2) + "€<br>" +
                 "<strong>Salario Neto: " + salarioNeto.toFixed(2) + "€</strong><br>" +
                 "<br/>" +
                 "Salario Bruto Anual: " + salarioAnual.toFixed(2) + "€<br>" +
@@ -237,9 +218,9 @@
                 "IRPF: " + irpfAmount.toFixed(2) + "€<br>" +
                 "<br/>" +
                 "<br/>" +
-                "<strong>La diferencia entre el salario bruto y el neto no es magia, son tus impuestos:</strong> " + "<strong>" + diferencia.toFixed(2) + "€" + "</strong>";
+                "<strong>La diferencia entre el salario bruto y el neto no es magia, son tus impuestos:</strong> " +
+                "<strong>" + diferencia.toFixed(2) + "€" + "</strong>";
         }
     </script>
 </body>
-
 </html>
